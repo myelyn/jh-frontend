@@ -1,0 +1,146 @@
+.modalMask {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(230,230,230,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.modalContent {
+  border-radius: 10px;
+  width: 500px;
+}
+.modalHeader {
+  position: relative;
+  width: 100%;
+  height: 31px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/images/ui/modal-top-c.png');
+  background-repeat: repeat-x;
+}
+
+.modalHeaderClose {
+  position: absolute;
+  right: 12px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  color: #f6e0bb;
+  cursor: pointer;
+}
+
+.modalHeaderTitle {
+  position: relative;
+  min-width: 200px;
+  height: 31px;
+  padding: 0 15px;
+  background-image: url('/images/ui/modal-title-c.png');
+  background-repeat: repeat-x;
+  background-clip: content-box;
+}
+
+.modalHeaderTitleText {
+  position: relative;
+  color: #512407;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  z-index: 1;
+  line-height: 31px;
+}
+
+.modalHeaderTitleLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 83;
+  height: 31px;
+  background-image: url('/images/ui/modal-title-l.png');
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.modalHeaderTitleRight {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 83px;
+  height: 31px;
+  background-image: url('/images/ui/modal-title-r.png');
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.modalHeaderLeft {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  height: 31px;
+  background-image: url('/images/ui/modal-top-l.png');
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.modalHeaderRight {
+  position: absolute;
+  right: 0;
+  width: 200px;
+  height: 31px;
+  background-image: url('/images/ui/modal-top-r.png');
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.modalBody {
+  position: relative;
+  width: 100%;
+  padding: 0 13px;
+}
+
+.modalBodyContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f1e5cd;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.modalBodyContentInner {
+  background-color: #fbf4e4;
+  border-radius: 6px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modalBodyLeftBorder {
+  position: absolute;
+  left: 0;
+  width: 26px;
+  top: 0;
+  bottom: 0;
+  background-image: url('/images/ui/modal-body-l.png');
+  background-repeat: repeat-y;
+}
+
+.modalBodyRightBorder {
+  position: absolute;
+  right: 0;
+  width: 26px;
+  top: 0;
+  bottom: 0;
+  background-image: url('/images/ui/modal-body-r.png');
+  background-repeat: repeat-y;
+}
+
+
+
+.modalFooter {
+  position: relative;
+  width: 100%;
+  height: 13px;
+  background-image: url('/images/ui/modal-bottom-c.png');
+  background-repeat: repeat-x;
+}

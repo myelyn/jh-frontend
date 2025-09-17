@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@layer base, components, utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Microsoft YaHei', '微软雅黑', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  line-height: 1.6;
+}
+
+#__next {
+  height: 100%;
+}
+
+/* 滚动条样式 - 结合主题色彩 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eeeeee;
+  border-radius: 6px;
+  border: 1px solid #dcd3c7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #bdad95 0%, #a19888 100%);
+  border-radius: 6px;
+  border: 1px solid #a79c8a;
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #9c968e 0%, #a2998e 100%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #7e7058 0%, #72695c 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: #f2f2f2;
+}
+
+/* 选择文本样式 - 与主题保持一致 */
+::selection {
+  background: #bdad95;
+  color: #2a2419;
+}
+
+::-moz-selection {
+  background: #bdad95;
+  color: #2a2419;
+}
