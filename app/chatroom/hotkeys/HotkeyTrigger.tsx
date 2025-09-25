@@ -48,7 +48,7 @@ export default function HotkeyTrigger({ hotkeyRecords, onUpdate }: HotkeyTrigger
   };
 
   const sendToChat = (message: string) => {
-     
+    console.log(message)
   }
 
   const toggleHotkeys = () => {
@@ -73,7 +73,6 @@ export default function HotkeyTrigger({ hotkeyRecords, onUpdate }: HotkeyTrigger
   return (
     <div className="p-3">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold">热键触发器</h3>
         <button
           onClick={toggleHotkeys}
           className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${

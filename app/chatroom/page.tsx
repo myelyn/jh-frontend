@@ -1,11 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from './header/index';
 import MessageList from './message-list/index';
 import MessageInput from './message-input/index';
-import Sidebar from './sidebar/index';
-import BoxBg from './components/BoxBg';
+import Online from './online/index';
 
 export default function Chatroom() {
   const [navigationItems] = useState([
@@ -23,21 +22,20 @@ export default function Chatroom() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-b from-[#2b2d2c] to-[#707571] text-gray-700">
+    <div className="flex flex-col h-screen p-2 text-gray-700 bg-[url('/images/backgrounds/chatroom-bg2.png')] bg-cover">
       <Header
         navigationItems={navigationItems}
         onTabClick={handleTabClick}
       />
       
-      <div className="relative flex flex-1 overflow-hidden m-2.5 bg-[url('/images/backgrounds/chatroom-bg-f.png')] bg-cover bg-bottom bg-right bg-no-repeat border-2 border-[#adb0a9]">
-        <BoxBg/>
-        <div className="flex flex-col flex-1">
+      <div className="relative flex flex-1 overflow-hidden gap-1.5">
+        <div className="flex flex-col flex-1 gap-1.5 rounded-sm">
           <MessageList
             messages={[]}
           />
           <MessageInput/>
         </div>
-        <Sidebar
+        <Online
           onlineCount={onlineCount}
         />
       </div>

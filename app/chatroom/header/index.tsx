@@ -12,7 +12,7 @@ export default function TopNavigation({
   onTabClick, 
 }: TopNavigationProps) {
   return (
-    <div className="px-5 h-[50px] flex items-center justify-between text-white bg-[url('/images/backgrounds/top-bg.png')] bg-repeat-x">
+    <div className="px-5 h-[50px] flex items-center justify-between text-white">
       <div>
         {navigationItems.map((item) => (
           <button

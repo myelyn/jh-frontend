@@ -21,7 +21,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }, ref) => {
     
     // 基础样式类
-    const baseClasses = 'inline-flex items-center justify-center rounded-sm font-medium transition-colors cursor-pointer disabled:opacity-50 disabled:pointer-events-none';
+    const baseClasses = 'inline-flex items-center justify-center font-medium transition-colors cursor-pointer disabled:opacity-50 disabled:pointer-events-none';
     
     // 变体样式类
     const variantClasses = {
@@ -36,7 +36,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     // 尺寸样式类
     const sizeClasses = {
       small: 'h-6 px-3 text-xs',
-      medium: 'h-8 px-5 text-base',
+      medium: 'h-8.5 px-5 text-base',
       large: 'h-10 px-6 text-lg',
     };
 

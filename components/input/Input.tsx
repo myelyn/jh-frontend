@@ -30,11 +30,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const inputId = id || `input-${Math.random().toString(36).substring(2, 11)}`;
     
     // 基础样式类
-    const baseClasses = 'block rounded-sm transition-colors focus:outline-none';
+    const baseClasses = 'block transition-colors focus:outline-none';
     
     // 变体样式类
     const variantClasses = {
-      default: 'bg-white border border-1 text-gray-600 placeholder:text-gray-400 border-gray-400 focus:border-gray-400 focus:ring-1 focus:ring-gray-200',
+      default: 'border border-1 text-white placeholder:text-gray-300 border-gray-500 focus:border-gray-400 focus:ring-1 focus:ring-gray-700',
       outlined: 'bg-transparent border-1 text-[#91754c] placeholder:text-[#dccdb6] border-[#c5b699] focus:border-[#cab28e] focus:ring-1 focus:ring-[#e8d9c3]',
       darkoutlined: 'bg-transparent border-1 text-[#4d391c] placeholder:text-[#a48b5f] border-[#735c3a] focus:border-[#735c3a] focus:ring-1 focus:ring-[#dac8ae]',
       noborder: 'bg-transparent text-gray-600 placeholder:text-gray-400 border-transparent focus:border-transparent focus:ring-0',
@@ -43,7 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     // 尺寸样式类
     const sizeClasses = {
       small: 'px-2 py-1 text-xs',
-      medium: 'px-3 py-2 text-base',
+      medium: 'px-3 py-1.5 text-sm',
       large: 'px-4 py-3 text-lg',
     };
     
