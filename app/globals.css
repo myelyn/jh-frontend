@@ -3,10 +3,44 @@
 @layer base, components, utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* 默认主题变量 */
+  --color-dark: #42301d;
+  --color-primary: #5a452e;
+  --color-secondary: #876b49;
+  --color-tertiary: #b39c79;
+  --color-quaternary: #d7c7ad;
+  --color-placeholder: #c8c0ba;
+  --color-light: #f7f3ea;
+  --color-bronze: #cd7f32;
+  --color-bronze-hover: #dea265;
 
+  --color-bg-dark: #5a452e;
+  --color-bg-primary: #bdad95;
+  --color-bg-secondary: #e6dcc4;
+  --color-bg-light: #f7f3ea;
+  
+  --color-border-primary: #91694b;
+  --color-border-primary-hover: #a1795b;
+  --color-border-secondary: #b5a68f;
+  --color-border-light: #f0dfd3;
+  --color-border-dark: #6a482d;
+  
+  --color-success: #4a7c59;
+  --color-warning: #e4a261;
+  --color-error: #dd5746;
+  --color-error-hover: #e96857;
+  --color-info: #5a8fc8;
+  
+ 
+  
+  /* 门派色 */
+  --color-sect-wudang: #4a7c59;
+  --color-sect-shaolin: #8b4513;
+  --color-sect-emei: #d4a574;
+  --color-sect-kunlun: #5a8fc8;
+  --color-sect-huashan: #c85a5a;
+  --color-sect-qingcheng: #9370db;
+}
 
 @layer base {
   * {
@@ -19,6 +53,9 @@
 html, body {
   height: 100%;
   overflow: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -26,48 +63,236 @@ body {
   line-height: 1.6;
 }
 
-#__next {
-  height: 100%;
+.shadow-box-md {
+  box-shadow: -2px -2px 10px 0 var(--color-tertiary);
 }
 
-/* 滚动条样式 - 结合主题色彩 */
+.shadow-box-lg {
+  box-shadow: -4px -4px 20px 0 var(--color-tertiary);
+}
+
+/* 滚动条样式 */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1e8de;
-  border-radius: 4px;
-  border: 1px solid #dcd3c7;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #bdad95 0%, #a19888 100%);
-  border-radius: 4px;
-  border: 1px solid #c5b396;
+  background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-tertiary) 100%);
+  border: 1px solid var(--color-bg);
   transition: all 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #9c968e 0%, #a2998e 100%);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(180deg, #7e7058 0%, #72695c 100%);
+  background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-primary) 100%);
 }
 
 ::-webkit-scrollbar-corner {
-  background: #f2f2f2;
+  background: var(--color-bg-light);
 }
 
-/* 选择文本样式 - 与主题保持一致 */
+/* 选择文本样式 */
 ::selection {
-  background: #bdad95;
-  color: #2a2419;
+  background: var(--color-tertiary);
+  color: var(--color-light);
 }
 
 ::-moz-selection {
-  background: #bdad95;
-  color: #2a2419;
+  background: var(--color-secondary);
+  color: var(--color-light);
+}
+
+@layer base {
+  .color-primary {
+    color: var(--color-primary);
+  }
+
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .text-primary:hover {
+    color: var(--color-secondary);
+  }
+
+  .text-primary:active {
+    color: var(--color-secondary);
+  }
+
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+
+  .color-secondary {
+    color: var(--color-secondary);
+  }
+
+  .text-secondary:hover {
+    color: var(--color-tertiary);
+  }
+
+  .text-secondary:active {
+    color: var(--color-tertiary);
+  }
+
+  .color-tertiary {
+    color: var(--color-tertiary);
+  }
+
+  .color-dark {
+    color: var(--color-dark);
+  }
+  
+  .color-light {
+    color: var(--color-light);
+  }
+
+  .color-info {
+    color: var(--color-info);
+  }
+  
+  .color-quaternary {
+    color: var(--color-quaternary);
+  }
+
+  .color-placeholder {
+    color: var(--color-placeholder);
+  }
+
+  .bg-primary {
+    background-color: var(--color-bg-primary);
+  }
+
+  .bg-dark {
+    background-color: var(--color-bg-dark);
+  }
+
+  .bg-light {
+    background-color: var(--color-bg-light);
+  }
+  
+  .border-primary {
+    border-color: var(--color-border-primary);
+  }
+
+  .border-secondary {
+    border-color: var(--color-border-secondary);
+  }
+
+  .border-primary:hover {
+    border-color: var(--color-border-primary);
+  }
+
+  .border-primary:active {
+    border-color: var(--color-border-primary);
+  }
+
+  .border-light {
+    border-color: var(--color-border-light);
+  }
+
+  .border-dark {
+    border-color: var(--color-border-dark);
+  }
+  
+  .color-success {
+    color: var(--color-success);
+  }
+
+  .color-warning {
+    color: var(--color-warning);
+  }
+  
+  .color-error {
+    color: var(--color-error);
+  }
+
+  .color-info {
+    color: var(--color-info);
+  }
+
+  
+}
+
+@layer components {
+  .btn-default {
+    background-color: var(--color-bronze);
+    color: var(--color-light);
+  }
+  .btn-default:hover {
+    background-color: var(--color-bronze-hover);
+  }
+  .btn-default:active {
+    background-color: var(--color-bronze-hover);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-secondary);
+  }
+  .btn-primary:active {
+    background-color: var(--color-secondary);
+  }
+
+  .btn-danger {
+    background-color: var(--color-error);
+    color: var(--color-light);
+  }
+  .btn-danger:hover {
+    background-color: var(--color-error-hover);
+  }
+  .btn-danger:active {
+    background-color: var(--color-error-hover);
+  }
+
+  .input-outlined {
+    background-color: transparent;
+    border:1px solid var(--color-border-dark);
+    color: var(--color-dark);
+  }
+  .input-outlined:focus {
+    border-color: var(--color-border-primary);
+    box-shadow: 0 0 2px 0px var(--color-border-primary);
+  }
+  .input-outlined::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  .input-lightoutlined {
+    background-color: transparent;
+    border:1px solid var(--color-tertiary);
+    color: var(--color-primary);
+  }
+  .input-lightoutlined:focus {
+    border-color: var(--color-tertiary);
+    box-shadow: 0 0 2px 0px var(--color-tertiary);
+  }
+  .input-lightoutlined::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  .input-default {
+    background-color: var(--color-light);
+    border:1px solid var(--color-border-secondary);
+    color: var(--color-primary);
+  }
+  .input-default:focus {
+    border-color: var(--color-border-secondary);
+    box-shadow: 0 0 2px 0px var(--color-border-secondary);
+  }
+  .input-default::placeholder {
+    color: var(--color-placeholder);
+  }
 }

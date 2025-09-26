@@ -1,18 +1,19 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from 'react';
-import Modal from '@/components/modal';
-import HotkeyManager from '../hotkeys/HotkeyManager';
-import HotkeyTrigger from '../hotkeys/HotkeyTrigger';
-import { HotkeyRecord } from '../types';
-import { Input } from '@/components/input';
-import { Button } from '@/components/button';
-import Bg from './bg';
+import { useEffect, useState } from 'react'
+import Modal from '@/components/modal'
+import HotkeyManager from '../hotkeys/HotkeyManager'
+import HotkeyTrigger from '../hotkeys/HotkeyTrigger'
+import { HotkeyRecord } from '../types'
+import { Input } from '@/components/input'
+import { Button } from '@/components/button'
+import Bg from './bg'
 
 export default function BottomInput() {
-  const [inputValue, setInputValue] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hotkeyRecords, setHotkeyRecords] = useState<HotkeyRecord[]>([]);
+  const [inputValue, setInputValue] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [hotkeyRecords, setHotkeyRecords] = useState<HotkeyRecord[]>([])
+  const [isHotkeyEnabled, setIsHotkeyEnabled] = useState<boolean>(true)
 
   const handleHotkeyUpdate = () => {
     const records = localStorage.getItem('hotkeyRecords')
@@ -26,43 +27,44 @@ export default function BottomInput() {
   }, [])
 
   return (
-    <div className="flex flex-col relative w-full h-[130px] justify-center items-center p-0.5 gap-2 bg-[url('/images/backgrounds/message-input-bg2.png')] bg-repeat bg-contain border-2 border-[#9f8e6e] shadow-md rounded-sm">
-      <Bg/>
-      <div className="flex h-10 w-full gap-1 justify-center items-center">
-        <div className="w-[50%] flex justify-center items-center">
-        <Input
-          type="text"
-          size="medium"
-          placeholder="输入发言内容"
-          className={'bg-[rgba(255,255,255,0.2)] rounded-[16px]'}
-          fullWidth
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        </div>
-      
-        <Button onClick={() => {}} variant="primary" className="rounded-[16px]">
-          发送
-        </Button>
-      </div>
-      
-      {/* <HotkeyTrigger hotkeyRecords={hotkeyRecords} /> */}
-
-      <div className="flex h-10 w-full gap-1 justify-center items-center">
-        <Button onClick={() => setIsModalOpen(true)}>
-          打开弹窗
-        </Button>
-      </div>
-
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="快捷键设置"
+    <>
+      <HotkeyTrigger hotkeyRecords={hotkeyRecords} onSendValue={setInputValue} isEnabled={isHotkeyEnabled} />
+      <div
+        className={`flex flex-col relative w-full justify-center items-center p-0.5 gap-2 bg-[url('/images/backgrounds/message-bg-left.png')] bg-no-repeat bg-contain bg-position-bottom`}
       >
-        <HotkeyManager onUpdate={() => {
-          handleHotkeyUpdate()
-        }}/>
-      </Modal>
-    </div>
-  );
+        <div className="flex h-10 w-full gap-1 justify-center items-center">
+          <div className="w-[50%] flex justify-center items-center">
+            <Input
+              size="medium"
+              variant="lightoutlined"
+              placeholder="输入发言内容"
+              fullWidth
+              circle
+              value={inputValue}
+              onChange={e => setInputValue(e.target.value)}
+            />
+          </div>
+
+          <Button onClick={() => {}} variant="danger" size="medium" circle>
+            发送
+          </Button>
+        </div>
+
+        <div className="flex h-10 w-full gap-1 justify-center items-center">
+          <Button onClick={() => setIsModalOpen(true)}>打开弹窗</Button>
+          <Button onClick={() => setIsHotkeyEnabled(!isHotkeyEnabled)} variant={isHotkeyEnabled ? 'danger' : 'default'}>
+            {isHotkeyEnabled ? '禁用热键' : '启用热键'}
+          </Button>
+        </div>
+
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="快捷键设置">
+          <HotkeyManager
+            onUpdate={() => {
+              handleHotkeyUpdate()
+            }}
+          />
+        </Modal>
+      </div>
+    </>
+  )
 }

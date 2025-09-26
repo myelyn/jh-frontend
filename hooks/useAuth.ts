@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAlert } from '@/components/alert'
-import { API_ROUTES } from '@/constants/api-routes'
 import { request } from '@/services/api'
+import { API_ROUTES } from '@/constants/api-routes'
 
 export const useAuth = () => {
   const [loading, setLoading] = useState(false)
@@ -33,7 +33,6 @@ export const useAuth = () => {
         position: 'top',
       })
 
-      console.log(res)
       if (res?.token) {
         localStorage.setItem('token', res.token)
       }
@@ -54,7 +53,6 @@ export const useAuth = () => {
 
   const logout = async () => {
     try {
-      // await authApi.logout()
       localStorage.removeItem('token')
       router.push('/')
     } catch (error) {
