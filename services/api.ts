@@ -28,8 +28,11 @@ api.interceptors.response.use(
   },
   (error: AxiosError) => {
     if (error.response?.status === 401) {
-      // localStorage.removeItem('token')
-      console.log('Token 失效，已清除本地存储')
+      localStorage.removeItem('token')
+      // 跳转到登录页
+      if (typeof window !== 'undefined') {
+        window.location.href = '/'
+      }
     }
     return Promise.reject(error)
   }

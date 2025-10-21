@@ -1,36 +1,26 @@
 'use client'
 
-import { useState } from 'react'
 import Header from './header/index'
 import MessageList from './message-list/index'
 import MessageInput from './message-input/index'
 import Online from './online/index'
+import { ChatroomProvider } from '@/contexts/chatroomContext'
 
 export default function Chatroom() {
-  const [navigationItems] = useState([
-    { id: 'announcement', label: '公告', href: '/announcement', isActive: false },
-    { id: 'mall', label: '商城', href: '/mall', isActive: true },
-    { id: 'help', label: '帮助', href: '/help', isActive: false },
-    { id: 'forum', label: '论坛', href: '/forum', isActive: false },
-  ])
-
-  const [onlineCount] = useState(80)
-
-  const handleTabClick = item => {
-    console.log('顶部导航栏:', item.label)
-  }
-
   return (
-    <div className="flex flex-col h-screen text-gray-700 bg-gradient-to-b from-[#1e1d1b] to-[#786a61]">
-      <Header navigationItems={navigationItems} onTabClick={handleTabClick} />
-
-      <div className="relative flex flex-1 p-2 overflow-hidden gap-1.5">
-        <div className="flex flex-col flex-1 gap-1.5 p-1.5 bg-[url('/images/backgrounds/message-bg-repeat.png')] bg-repeat">
-          <MessageList />
-          <MessageInput />
+    <ChatroomProvider>
+      <div className="relative flex flex-col w-full h-screen overflow-hidden bg-[url('/images/backgrounds/chatroom-bg.png')] bg-cover">
+        <div className="flex h-[50px] border-b-1 border-[rgba(255,255,255,0.4)]">
+          <Header />
         </div>
-        <Online onlineCount={onlineCount} />
+        <div className="flex flex-1">
+          <div className="flex flex-col flex-1 gap-2 pt-1.5 pl-1.5 pr-1.5 ">
+            <MessageList />
+            <MessageInput />
+          </div>
+          <Online />
+        </div>
       </div>
-    </div>
+    </ChatroomProvider>
   )
 }

@@ -64,11 +64,11 @@ body {
 }
 
 .shadow-box-md {
-  box-shadow: -2px -2px 10px 0 var(--color-tertiary);
+  box-shadow: 2px 2px 4px 0 var(--color-quaternary);
 }
 
 .shadow-box-lg {
-  box-shadow: -4px -4px 20px 0 var(--color-tertiary);
+  box-shadow: -4px -4px 16px 0 var(--color-quaternary);
 }
 
 /* 滚动条样式 */

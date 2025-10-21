@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect, useRef } from 'react'
 import HotkeyInput from './HotkeyInput'
 import { Button } from '@/components/button'

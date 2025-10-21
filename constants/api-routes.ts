@@ -4,6 +4,8 @@ export const API_ROUTES = {
   LOGIN: '/user/login',
   REGISTER: '/user/register',
   FORGOT_PASSWORD: '/user/forgot-password',
+  USERINFO: '/user/info',
+  LOGOUT: '/user/logout',
 
   // 门派相关
   SECT_LIST: '/sect/list',

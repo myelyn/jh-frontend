@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useId } from 'react'
 
 export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   variant?: 'default' | 'outlined' | 'lightoutlined' | 'noborder'
@@ -31,7 +32,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     // 生成唯一的 ID
-    const inputId = id || `input-${Math.random().toString(36).substring(2, 11)}`
+    const generatedId = useId()
+    const inputId = id || `input-${generatedId}`
 
     // 基础样式类
     const baseClasses = 'block transition-colors focus:outline-none'
@@ -41,7 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       default: 'input-default',
       lightoutlined: 'input-lightoutlined',
       outlined: 'input-outlined',
-      noborder: 'bg-transparent color-secondary placeholder:color-placeholder border-transparent focus:border-transparent focus:ring-0',
+      noborder: 'color-secondary placeholder:color-placeholder border-transparent focus:border-transparent focus:ring-0',
     }
 
     // 尺寸样式类
